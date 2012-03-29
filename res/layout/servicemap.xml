@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical"
+    android:weightSum="150" >
+
+    <!-- ok with layout_weight the its inverse to size so the more the weight the smaller the element -->
+
+    <AutoCompleteTextView
+        android:id="@+id/acCat"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_weight="65"
+        android:hint="Job Category..." />
+
+    <LinearLayout
+        android:id="@+id/linearLayout1"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_weight="65"
+        android:weightSum="100" >
+
+        <EditText
+            android:id="@+id/etMapSearch"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="20" >
+
+            <requestFocus />
+        </EditText>
+
+        <Button
+            android:id="@+id/btMapSearch"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="80"
+            android:text="Find" />
+    </LinearLayout>
+
+    <!-- this is making the mapview -->
+
+    <com.google.android.maps.MapView
+        android:id="@+id/searchMapView"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_weight="20"
+        android:apiKey="0dyJmrnPgJpKq6yQMXaibi-DgFgtpAy1u395jvA"
+        
+        android:clickable="true" />
+
+</LinearLayout>

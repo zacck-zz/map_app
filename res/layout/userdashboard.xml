@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  android:orientation="vertical"
+  android:layout_width="match_parent"
+  android:layout_height="match_parent"
+  android:background="@android:color/white" 
+  android:weightSum="100"
+   >
+    <TableLayout android:layout_weight="80"  android:layout_width="match_parent" android:id="@+id/tableLayout1" android:layout_height="fill_parent">
+        <TableRow android:id="@+id/tableRow1" android:layout_width="wrap_content" android:layout_height="wrap_content">
+            <Button android:text="" android:layout_height="40dp" android:layout_width="40dp" android:background="@drawable/notifications" android:id="@+id/button2" android:layout_marginLeft="10dp"></Button>
+            <Button android:text="" android:id="@+id/button3" android:layout_height="40dp" android:layout_width="40dp" android:background="@drawable/preferences" android:layout_marginLeft="10dp"></Button>
+            <Button android:layout_height="40dp" android:layout_width="40dp" android:background="@drawable/search" android:id="@+id/button5" android:layout_marginLeft="10dp"></Button>
+            <Button android:text="" android:id="@+id/button4" android:layout_height="40dp" android:layout_width="40dp" android:background="@drawable/usergroup" android:layout_marginLeft="10dp"></Button>
+            <Button android:layout_height="40dp" android:layout_width="40dp" android:background="@drawable/user" android:id="@+id/button1" android:layout_marginLeft="10dp"></Button>
+        </TableRow>
+        <TableRow android:id="@+id/tableRow2" android:layout_width="wrap_content" android:layout_height="wrap_content">
+            <TextView android:textColor="@android:color/black" android:textStyle="bold" android:layout_marginLeft="10dp" android:text="Alerts" android:id="@+id/textView1" android:layout_width="wrap_content" android:layout_height="wrap_content"></TextView>
+            <TextView android:textColor="@android:color/black" android:textStyle="bold" android:layout_height="wrap_content" android:layout_width="wrap_content" android:id="@+id/textView2" android:text="Favs" android:layout_marginLeft="10dp"></TextView>
+            <TextView android:textColor="@android:color/black" android:textStyle="bold" android:layout_marginLeft="10dp"  android:text="Search" android:id="@+id/textView3" android:layout_width="wrap_content" android:layout_height="wrap_content"></TextView>
+            <TextView android:textColor="@android:color/black" android:textStyle="bold" android:layout_marginLeft="10dp" android:text="My Groups" android:id="@+id/textView4" android:layout_width="wrap_content" android:layout_height="wrap_content"></TextView>
+            <TextView android:textColor="@android:color/black" android:textStyle="bold" android:layout_marginLeft="10dp" android:text="Profile" android:id="@+id/textView5" android:layout_width="wrap_content" android:layout_height="wrap_content"></TextView>
+        </TableRow>
+        <TableRow android:id="@+id/tableRow3" android:layout_width="wrap_content" android:layout_height="wrap_content"></TableRow>
+        <TableRow android:id="@+id/tableRow4" android:layout_width="wrap_content" android:layout_height="wrap_content">
+            </TableRow>
+    </TableLayout>
+    <ListView android:id="@android:id/list" android:cacheColorHint="#00000000" android:layout_weight="20" android:layout_height="fill_parent" android:layout_width="match_parent"></ListView>
+</LinearLayout>

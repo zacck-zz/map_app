@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+	<item android:title="Create Work Group" android:numericShortcut="1"
+		android:alphabeticShortcut="a" android:id="@+id/newgroups"
+		android:icon="@drawable/notifications"></item>
+
+	<item android:title="View Work Groups" android:icon="@drawable/preferences"
+		android:numericShortcut="2" android:alphabeticShortcut="q"
+		android:id="@+id/viewgroups"></item>
+
+</menu>

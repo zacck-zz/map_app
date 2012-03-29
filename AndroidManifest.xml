@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+      package="com.gitwork"
+      android:versionCode="1"
+      android:versionName="1.0">
+    <uses-sdk android:minSdkVersion="8" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"></uses-permission>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"></uses-permission>
+    <uses-permission android:name="android.permission.INTERNET"></uses-permission>
+
+    <application android:icon="@drawable/icon" android:label="@string/app_name">
+       <uses-library android:name="com.google.android.maps" ></uses-library>
+       
+        <activity android:name=".Splash"
+                  android:label="@string/app_name">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        
+         <activity android:name=".Git_workActivity"
+                  android:label="@string/app_name">
+            <intent-filter>
+                <action android:name="com.gitwork.MAINMENU" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        
+        <activity android:name=".Categories"
+                  android:label="@string/app_name">
+            <intent-filter>
+                <action android:name="com.gitwork.CATEGORIES" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        
+        <activity android:name=".UserRegistration"
+                  android:label="@string/app_name">
+            <intent-filter>
+                <action android:name="com.gitwork.REGISTRATION" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        
+           <activity android:name=".Resources"
+                  android:label="@string/app_name">
+            <intent-filter>
+                <action android:name="com.gitwork.RESOURCES" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        
+        <activity android:name=".Calender"
+                  android:label="@string/app_name">
+            <intent-filter>
+                <action android:name="com.gitwork.CALENDER" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+     <activity android:name=".landingPage" ></activity> 
+     
+     <activity android:name=".ServiceMap"
+                  android:label="@string/app_name">
+            <intent-filter>
+                <action android:name="com.gitwork.MAP" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        
+        <activity android:name=".UserGroups"
+                  android:label="@string/app_name">
+            <intent-filter>
+                <action android:name="com.gitwork.USERGROUPS" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".shar"/>
+           
+    </application>
+</manifest>

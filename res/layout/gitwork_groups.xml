@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  android:orientation="vertical"
+  android:layout_width="match_parent"
+  android:layout_height="match_parent"
+  android:background="@android:color/white"
+  >
+    <TableLayout android:layout_width="match_parent" android:id="@+id/tableLayout1" android:layout_weight="80" android:layout_height="fill_parent">
+        <TableRow android:layout_height="wrap_content" android:id="@+id/tableRow1" android:layout_width="wrap_content">
+            <Button android:layout_marginLeft="10dp" android:background="@drawable/notifications" android:id="@+id/button2" android:layout_width="40dp" android:layout_height="40dp"></Button>
+            <Button android:layout_marginLeft="10dp" android:background="@drawable/preferences" android:id="@+id/button3" android:layout_width="40dp" android:layout_height="40dp"></Button>
+            <Button android:layout_marginLeft="10dp" android:background="@drawable/search" android:id="@+id/button5" android:layout_width="40dp" android:layout_height="40dp"></Button>
+            <Button android:layout_marginLeft="10dp" android:background="@drawable/usergroup" android:id="@+id/button4" android:layout_width="40dp" android:layout_height="40dp"></Button>
+            <Button android:layout_marginLeft="10dp" android:background="@drawable/user" android:id="@+id/button1" android:layout_width="40dp" android:layout_height="40dp"></Button>
+        </TableRow>
+        <TableRow android:layout_height="wrap_content" android:id="@+id/tableRow2" android:layout_width="wrap_content">
+            <TextView android:id="@+id/textView1" android:layout_marginLeft="10dp" android:textStyle="bold" android:textColor="@android:color/black" android:text="Alerts" android:layout_width="wrap_content" android:layout_height="wrap_content"></TextView>
+            <TextView android:id="@+id/textView2" android:layout_marginLeft="10dp" android:textStyle="bold" android:textColor="@android:color/black" android:text="Favs" android:layout_width="wrap_content" android:layout_height="wrap_content"></TextView>
+            <TextView android:id="@+id/textView3" android:layout_marginLeft="10dp" android:textStyle="bold" android:textColor="@android:color/black" android:text="Search" android:layout_width="wrap_content" android:layout_height="wrap_content"></TextView>
+            <TextView android:id="@+id/textView4" android:layout_marginLeft="10dp" android:textStyle="bold" android:textColor="@android:color/black" android:text="My Groups" android:layout_width="wrap_content" android:layout_height="wrap_content"></TextView>
+            <TextView android:id="@+id/textView5" android:layout_marginLeft="10dp" android:textStyle="bold" android:textColor="@android:color/black" android:text="Profile" android:layout_width="wrap_content" android:layout_height="wrap_content"></TextView>
+        </TableRow>
+        <TableRow android:layout_height="wrap_content" android:id="@+id/tableRow3" android:layout_width="wrap_content"></TableRow>
+        <TableRow android:layout_height="wrap_content" android:id="@+id/tableRow4" android:layout_width="wrap_content"></TableRow>
+    </TableLayout>
+    
+</LinearLayout>

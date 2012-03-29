@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu 
+  xmlns:android="http://schemas.android.com/apk/res/android" >
+  <item 
+  
+  android:title="Notifications" 
+  android:numericShortcut="1"
+   android:alphabeticShortcut="a"
+   android:id="@+id/watchlist"
+  android:icon="@drawable/notifications"></item>
+  
+  <item android:title="Preferences" 
+  android:icon="@drawable/preferences"
+  android:numericShortcut="2"
+   android:alphabeticShortcut="q"
+   android:id="@+id/preferences"
+  ></item>
+       
+  <item android:title="Exit" 
+    android:icon="@drawable/exit"
+    android:id="@+id/exit"
+  ></item>  
+</menu>
