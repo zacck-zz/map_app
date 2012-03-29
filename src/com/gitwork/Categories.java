@@ -2,6 +2,7 @@ package com.gitwork;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 import org.apache.http.HttpResponse;
@@ -18,6 +19,8 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+
+
 import android.app.ListActivity;
 import android.content.Intent;
 import android.os.AsyncTask;
@@ -27,13 +30,17 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.SimpleAdapter;
 
 public class Categories extends ListActivity {
 
-	String[] categories, ids;
+	String[] mCategories, mIds, mDescriptions;
 	
 	public class getCats extends AsyncTask<Void, Void, Void>
 	{
+		
+		ArrayList<HashMap<String, String>> listy = new ArrayList<HashMap<String, String>>();
+		
 
 		@Override
 		protected Void doInBackground(Void... params) {
@@ -55,22 +62,33 @@ public class Categories extends ListActivity {
 		        
 		        JSONArray childArray = parent.getJSONArray("cats");
 		        
-		        categories = new String[childArray.length()];
-		        ids = new String[childArray.length()];
+		        mCategories = new String[childArray.length()];
+		        mIds = new String[childArray.length()];
+		        mDescriptions = new String[childArray.length()];
 		        
 		        JSONObject child;
 		        
-		        for (int i=0; i<categories.length; i++)
+		        for (int i=0; i<mCategories.length; i++)
 		        {
 		        	child = childArray.getJSONObject(i).getJSONObject("post");
-		        	categories[i] = child.getString("category_title") +"\n"+child.getString("category_description");
-		        	ids[i] = child.getString("category_id");
+		        	mCategories[i] = child.getString("category_title");
+		        	mIds[i] = child.getString("category_id");
+		        	mDescriptions[i] = child.getString("category_description");
 		        }
+		        HashMap<String, String> hash;
+				for (int i = 0; i < parent.length(); i++) {
+					hash = new HashMap<String, String>();
+					hash.put("catName", mCategories[i]);
+					hash.put("catDesc", mDescriptions[i]);
+					hash.put("catId", mIds[i]);
+					listy.add(hash);
+
+				}
 		        
 		    } catch (ClientProtocolException e) {
 		        // TODO Auto-generated catch block
 		    } catch (IOException e) {
-		        // TODO Auto-generated catch block
+		        // TODO Auto-generated catch block 0722793945
 		    } catch (ParseException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -86,10 +104,13 @@ public class Categories extends ListActivity {
 		
 		@Override
 		protected void onPostExecute(Void result) {
-			// TODO Auto-generated method stub
-			//super.onPostExecute(result);
-			setListAdapter(new ArrayAdapter<String>(Categories.this,
-				android.R.layout.simple_list_item_1, categories));
+			
+			SimpleAdapter adp = new SimpleAdapter(Categories.this, listy,
+					R.layout.list_item_primary, new String[] { "catName",
+							"catDesc" }, new int[] {
+							R.id.tvFocus, R.id.tvMeta});
+			setListAdapter(adp);
+			
 		}
 		
 	}
