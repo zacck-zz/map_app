@@ -25,20 +25,22 @@ import android.app.ListActivity;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.ArrayAdapter;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
 
 public class Categories extends ListActivity {
 
-	String[] mCategories, mIds, mDescriptions;
+	
 	
 	public class getCats extends AsyncTask<Void, Void, Void>
 	{
-		
+		String[] mCategories, mIds, mDescriptions;
 		ArrayList<HashMap<String, String>> listy = new ArrayList<HashMap<String, String>>();
 		
 
@@ -66,17 +68,19 @@ public class Categories extends ListActivity {
 		        mIds = new String[childArray.length()];
 		        mDescriptions = new String[childArray.length()];
 		        
-		        JSONObject child;
+		        
 		        
 		        for (int i=0; i<mCategories.length; i++)
 		        {
-		        	child = childArray.getJSONObject(i).getJSONObject("post");
+		        	
+		        	JSONObject child = childArray.getJSONObject(i).getJSONObject("post");
+		        	Log.v("list", child.toString());
 		        	mCategories[i] = child.getString("category_title");
 		        	mIds[i] = child.getString("category_id");
 		        	mDescriptions[i] = child.getString("category_description");
 		        }
 		        HashMap<String, String> hash;
-				for (int i = 0; i < parent.length(); i++) {
+				for (int i = 0; i < mCategories.length; i++) {
 					hash = new HashMap<String, String>();
 					hash.put("catName", mCategories[i]);
 					hash.put("catDesc", mDescriptions[i]);
@@ -106,10 +110,24 @@ public class Categories extends ListActivity {
 		protected void onPostExecute(Void result) {
 			
 			SimpleAdapter adp = new SimpleAdapter(Categories.this, listy,
-					R.layout.list_item_primary, new String[] { "catName",
-							"catDesc" }, new int[] {
-							R.id.tvFocus, R.id.tvMeta});
+					R.layout.list_item_primary, 
+					new String[] { "catName","catDesc" },
+					new int[] {R.id.tvFocus, R.id.tvMeta});
 			setListAdapter(adp);
+			ListView lv = getListView();
+			
+			lv.setOnItemClickListener(new OnItemClickListener() {
+
+				@Override
+				public void onItemClick(AdapterView<?> arg0, View arg1,
+						int pos, long arg3) {
+					String n = mIds[pos];
+					Intent taskIntent = new Intent(Categories.this, Task.class);
+					taskIntent.putExtra("param", n);
+					startActivity(taskIntent);
+					
+				}
+			});
 			
 		}
 		
@@ -119,6 +137,7 @@ public class Categories extends ListActivity {
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
+		setContentView(R.layout.list_view);
 		
 		getCats g = new getCats();
 		g.execute();

@@ -68,10 +68,10 @@ public final class R {
         public static final int editText2=0x7f060013;
         public static final int editText3=0x7f060015;
         public static final int etMapSearch=0x7f06003b;
-        public static final int exit=0x7f060042;
+        public static final int exit=0x7f060047;
         public static final int linearLayout1=0x7f06003a;
-        public static final int newgroups=0x7f060043;
-        public static final int preferences=0x7f060041;
+        public static final int newgroups=0x7f060048;
+        public static final int preferences=0x7f060046;
         public static final int searchMapView=0x7f06003d;
         public static final int socfb=0x7f06003e;
         public static final int soctw=0x7f06003f;
@@ -112,26 +112,33 @@ public final class R {
         public static final int textView6=0x7f060032;
         public static final int textView7=0x7f060014;
         public static final int textView8=0x7f060035;
+        public static final int tvDead=0x7f060043;
         public static final int tvFocus=0x7f060010;
         public static final int tvMeta=0x7f060011;
-        public static final int viewgroups=0x7f060044;
-        public static final int watchlist=0x7f060040;
+        public static final int tvOwner=0x7f060044;
+        public static final int tvTname=0x7f060040;
+        public static final int tvTpost=0x7f060042;
+        public static final int tvTreq=0x7f060041;
+        public static final int viewgroups=0x7f060049;
+        public static final int watchlist=0x7f060045;
     }
     public static final class layout {
         public static final int calender=0x7f030000;
         public static final int gitwork_groups=0x7f030001;
         public static final int list_item=0x7f030002;
         public static final int list_item_primary=0x7f030003;
-        public static final int main=0x7f030004;
-        public static final int main_menu=0x7f030005;
-        public static final int newtask=0x7f030006;
-        public static final int owner_details=0x7f030007;
-        public static final int resources=0x7f030008;
-        public static final int servicemap=0x7f030009;
-        public static final int social_media=0x7f03000a;
-        public static final int splash=0x7f03000b;
-        public static final int tasks=0x7f03000c;
-        public static final int userdashboard=0x7f03000d;
+        public static final int list_view=0x7f030004;
+        public static final int main=0x7f030005;
+        public static final int main_menu=0x7f030006;
+        public static final int newtask=0x7f030007;
+        public static final int owner_details=0x7f030008;
+        public static final int resources=0x7f030009;
+        public static final int servicemap=0x7f03000a;
+        public static final int social_media=0x7f03000b;
+        public static final int splash=0x7f03000c;
+        public static final int task_detail=0x7f03000d;
+        public static final int tasks=0x7f03000e;
+        public static final int userdashboard=0x7f03000f;
     }
     public static final class menu {
         public static final int cool_menu=0x7f050000;
