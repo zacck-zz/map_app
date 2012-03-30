@@ -55,7 +55,8 @@ public class ServiceMap extends MapActivity implements OnClickListener,
 	GeoPoint gp;
 	String[] cats;
 
-	String[] laty, longi, titl, desc;
+	String[]  titl, desc;
+	int[] laty, longi;
 
 	// variables
 
@@ -92,8 +93,8 @@ public class ServiceMap extends MapActivity implements OnClickListener,
 
 		addJob(2750547, (int) 36.8166667, d, "loc", "this is a test loc");
 		mController.animateTo(point);
-		pickCats p = new pickCats();
-		p.execute();
+		//pickCats p = new pickCats();
+		//p.execute();
 		
 		collectJobs cj = new collectJobs();
 		cj.execute();
@@ -223,15 +224,13 @@ public class ServiceMap extends MapActivity implements OnClickListener,
 	}
 
 	public class collectJobs extends AsyncTask<Void, Void, Void> {
+		
+		int n;
 
 		@Override
 		protected Void doInBackground(Void... arg0) {
 
-			// deactivate
-			eCat.setEnabled(false);
-			// Toast.makeText(projects_list.this,
-			// "Please wait while the list of constiuencies is collected",
-			// Toast.LENGTH_LONG).show();
+			
 
 			// create a client
 			HttpClient cli = new DefaultHttpClient();
@@ -242,17 +241,24 @@ public class ServiceMap extends MapActivity implements OnClickListener,
 				if (response.getStatusLine().getStatusCode() == 200) {
 					
 					String s = EntityUtils.toString(response.getEntity());
+					Log.v("obj", s);
 					JSONObject parent = new JSONObject(s);
 					
 					JSONArray ja = parent.getJSONArray("map_task");
-					laty = new String[ja.length()];
-					longi = new String[ja.length()];
-					titl = new String[ja.length()];
-					desc = new String[ja.length()];
-					for (int i = 0; i < ja.length(); i++) {
+					n = ja.length();
+					Log.v("length", n+"");
+					laty = new int[n];
+					longi = new int[n];
+					titl = new String[n];
+					desc = new String[n];
+					for (int i = 0; i<n; i++) {
 						JSONObject c = ja.getJSONObject(i).getJSONObject("post");
-						laty[i] = c.getString("latitude");
-						longi[i] = c.getString("longitude");
+						Log.v("lat1,long1", laty[i]+","+longi[i]);
+						laty[i] = (int) (c.getDouble("latitude")*1E6);
+						
+						longi[i] = (int) (c.getDouble("longitude")*1E6);
+						
+						Log.v("lat,long", laty[i]+","+longi[i]);
 						titl[i] = c.getString("task_name");
 						desc[i] = c.getString("task_requirements");
 
@@ -261,7 +267,7 @@ public class ServiceMap extends MapActivity implements OnClickListener,
 				}
 
 			} catch (Exception e) {
-
+				Log.v("netErr", e.toString());
 			}
 
 			return null;
@@ -271,9 +277,13 @@ public class ServiceMap extends MapActivity implements OnClickListener,
 		protected void onPostExecute(Void result) {
 			super.onPostExecute(result);
 
-			for (int s = 0; s < laty.length; s++) {
-				addJob(Integer.parseInt(laty[s]), Integer.parseInt(longi[s]),
+			for (int s = 0; s < n; s++) {
+				addJob((int) (laty[s]), (int) (longi[s]),
 						d, titl[s], desc[s]);
+			
+				GeoPoint p = new GeoPoint(laty[s], longi[s]);
+				Log.v("gp Added", p.toString());
+				mController.animateTo(p);
 			}
 
 		}
