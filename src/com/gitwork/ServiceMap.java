@@ -240,14 +240,17 @@ public class ServiceMap extends MapActivity implements OnClickListener,
 			try {
 				response = cli.execute(post);
 				if (response.getStatusLine().getStatusCode() == 200) {
+					
 					String s = EntityUtils.toString(response.getEntity());
-					JSONArray ja = new JSONArray(s);
+					JSONObject parent = new JSONObject(s);
+					
+					JSONArray ja = parent.getJSONArray("map_task");
 					laty = new String[ja.length()];
 					longi = new String[ja.length()];
 					titl = new String[ja.length()];
 					desc = new String[ja.length()];
 					for (int i = 0; i < ja.length(); i++) {
-						JSONObject c = ja.getJSONObject(i);
+						JSONObject c = ja.getJSONObject(i).getJSONObject("post");
 						laty[i] = c.getString("latitude");
 						longi[i] = c.getString("longitude");
 						titl[i] = c.getString("task_name");
