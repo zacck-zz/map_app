@@ -94,6 +94,9 @@ public class ServiceMap extends MapActivity implements OnClickListener,
 		mController.animateTo(point);
 		pickCats p = new pickCats();
 		p.execute();
+		
+		collectJobs cj = new collectJobs();
+		cj.execute();
 
 	}
 
@@ -232,7 +235,7 @@ public class ServiceMap extends MapActivity implements OnClickListener,
 
 			// create a client
 			HttpClient cli = new DefaultHttpClient();
-			HttpPost post = new HttpPost("http://semasoftltd.com/webs/cons.php");
+			HttpPost post = new HttpPost("http://zacckos.heliohost.org/git_work/map_populate.php");
 			HttpResponse response = null;
 			try {
 				response = cli.execute(post);
@@ -245,10 +248,10 @@ public class ServiceMap extends MapActivity implements OnClickListener,
 					desc = new String[ja.length()];
 					for (int i = 0; i < ja.length(); i++) {
 						JSONObject c = ja.getJSONObject(i);
-						laty[i] = c.getString("la");
-						longi[i] = c.getString("lo");
-						titl[i] = c.getString("title");
-						desc[i] = c.getString("desc");
+						laty[i] = c.getString("latitude");
+						longi[i] = c.getString("longitude");
+						titl[i] = c.getString("task_name");
+						desc[i] = c.getString("task_requirements");
 
 					}
 
